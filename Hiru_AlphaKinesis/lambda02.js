@@ -16,10 +16,12 @@ exports.handler = function (event, context, callback) {
 		PhoneNumber: '+94715397214'
 	}).promise()
 		.then(data => {
-			// your code goes here
+			
+			console.log("successful , data : ",data);
 		})
 		.catch(err => {
-			// error handling goes here
+			console.log("Error , error message : ",err);
+			
 		});
 	sns.createPlatformEndpoint({
 		PlatformApplicationArn: 'arn:aws:sns:us-east-1:480964559519:app/BAIDU/Test-Baidu-App',
@@ -30,10 +32,10 @@ exports.handler = function (event, context, callback) {
 		},
 	}).promise()
 		.then(data => {
-			// your code goes here
+			console.log("successful , data : ",data);
 		})
 		.catch(err => {
-			// error handling goes here
+			console.log("Error , error message : ",err);
 		});
 
 
