@@ -41,24 +41,13 @@ exports.handler = function (event, context, callback) {
 			console.log("Error , error message : ", err);
 		});
 
-	// You can pass the existing connection to this function.
-	// A new connection will be created if it's not present as the third param 
-	// You must always end/destroy the DB connection after it's used
-	rds.query({
-		instanceIdentifier: 'hirutest',
-		query: 'Select * from customers',
-		inserts: []
-	}, function (error, results, connection) {
-		if (error) {
-			console.log("Error occurred");
-			throw error;
-		} else {
-			console.log("Success")
-			console.log(results);
-		}
 
-		connection.end();
+	rds.beginTransaction({
+		instanceIdentifier: 'Hiru002'
+	}, function (error, connection) {
+		if (error) { throw err; }
 	});
+
 
 
 	callback(null, 'Successfully executed');
