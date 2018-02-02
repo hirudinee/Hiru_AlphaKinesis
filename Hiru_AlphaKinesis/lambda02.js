@@ -21,6 +21,20 @@ exports.handler = function (event, context, callback) {
 		.catch(err => {
 			// error handling goes here
 		});
+	sns.createPlatformEndpoint({
+		PlatformApplicationArn: 'arn:aws:sns:us-east-1:480964559519:app/BAIDU/Test-Baidu-App',
+		Token: '123456',
+		CustomUserData: 'test',
+		Attributes: {
+			'test': '001',
+		},
+	}).promise()
+		.then(data => {
+			// your code goes here
+		})
+		.catch(err => {
+			// error handling goes here
+		});
 
 
 	callback(null, 'Successfully executed');
